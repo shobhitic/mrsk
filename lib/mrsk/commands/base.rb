@@ -48,7 +48,7 @@ module Mrsk::Commands
       def docker(*args)
         manager = :docker
 
-        manger = :podman if @config.manager == 'podman'
+        manager = :podman if @config.manager == 'podman'
 
         args.compact.unshift manager
       end
