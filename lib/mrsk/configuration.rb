@@ -60,6 +60,10 @@ class Mrsk::Configuration
     accessories.detect { |a| a.name == name.to_s }
   end
 
+  def manager
+    raw_config.manager.presence || "docker"
+  end
+
 
   def all_hosts
     roles.flat_map(&:hosts)
@@ -159,7 +163,8 @@ class Mrsk::Configuration
       ssh_options: ssh_options,
       builder: raw_config.builder,
       accessories: raw_config.accessories,
-      healthcheck: healthcheck
+      healthcheck: healthcheck,
+      manager: manager
     }.compact
   end
 
