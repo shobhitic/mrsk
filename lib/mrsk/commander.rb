@@ -65,6 +65,10 @@ class Mrsk::Commander
     @healthcheck ||= Mrsk::Commands::Healthcheck.new(config)
   end
 
+  def manager
+    config.manager.presence || "docker"
+  end
+
   def prune
     @prune ||= Mrsk::Commands::Prune.new(config)
   end
