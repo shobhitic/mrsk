@@ -3,7 +3,7 @@ class Mrsk::Cli::Server < Mrsk::Cli::Base
   def bootstrap
     on(MRSK.hosts + MRSK.accessory_hosts) do
 
-      case MSRK.manager
+      case MRSK.manager
       when 'podman'
         execute "which podman || (apt-get update -y && apt-get install podman -y"
       when 'docker'
